@@ -1,0 +1,32 @@
+<?php 
+
+function custom_sort($arr) {
+  for ($i=0; $i<count($arr); $i++) {
+    for ($j=0; $j<count($arr)-1-$i; $j++) {
+        if ($arr[$j+1] < $arr[$j]) {
+            swap($arr, $j, $j+1);
+        }
+     }
+  }
+  return $arr;
+}
+
+function swap(&$arr, $a, $b) {
+   $tmp = $arr[$a];
+   $arr[$a] = $arr[$b];
+   $arr[$b] = $tmp;
+}
+
+//using sorting functions
+//$arr = array(1,13,2,9,5,7,0,3);
+$arr = array('z','n','m','a','l','d','b');
+$sorted_arr = custom_sort($arr);
+
+ echo("Before sorting");
+ print_r($arr);
+
+ sort($arr);
+
+ echo("Sorted array");
+ print_r($sorted_arr);
+?>
