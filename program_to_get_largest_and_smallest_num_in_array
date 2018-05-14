@@ -1,0 +1,22 @@
+<?php
+/*
+* Program to get the largest and smallest number in array 
+*/
+$Str = "3,4,1,6,9,2";
+get_smallest_and_largest_num($Str);
+function get_smallest_and_largest_num($Str){
+	$arr = explode(",",$Str);
+	$largest = $arr[0];
+	$smallest = $arr[1];
+	foreach($arr as $val){
+		if($val > $largest){
+			$largest = $val;
+		}
+		else if($val < $smallest){
+			$smallest=$val;
+		}
+	}
+	echo 'smallest number is : '.$smallest;
+	echo 'Largest number is :'.$largest;
+}
+?>
