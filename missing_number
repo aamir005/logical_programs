@@ -1,0 +1,18 @@
+<?php
+function find_missing_number($arr,$tot_term){
+
+$n = $tot_term;
+$actual_sum = $n*($n+1)/2;
+$tot_sum=0;
+ for($i=0;$i<count($arr);$i++){
+    $tot_sum += $arr[$i];
+  }
+  $missing_num = $actual_sum - $tot_sum;
+  
+  return $missing_num;
+}
+
+$m=[1,2,3,4,6];
+$t=6;
+echo "Missing Number is ".find_missing_number($m,$t);
+?>
