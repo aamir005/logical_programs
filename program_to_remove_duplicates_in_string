@@ -1,0 +1,38 @@
+<form  method="GET" >
+<input type="text" name="req_str" />
+<input type="submit" value="Submit" name="sbmt_btn" />
+</form>
+<?php 
+/**
+*This is the program to remove the duplicate character from string
+*/
+
+
+if(isset($_GET['req_str'])){
+	if(!empty($_GET['req_str'])){
+		$req_str = $_GET['req_str'];
+		echo 'requested string is : '.$req_str;
+		$ret_string = remove_duplicate($req_str);
+		echo '<br>required string is : '.$ret_string;
+	}
+}
+function remove_duplicate($req_string){
+	$req_str_arr = str_split($req_string);
+	$retn_arr =[];
+	for($i=0;$i<count($req_str_arr);$i++){
+		$duplicate_found =0;
+		for($j=0;$j<count($retn_arr);$j++){
+			if($req_str_arr[$i]==$retn_arr[$j]){
+				$duplicate_found =1;
+				break;
+			}
+		}
+		if($duplicate_found==0){
+			array_push($retn_arr,$req_str_arr[$i]);
+		}
+	}
+	
+	$ret_str = implode("",$retn_arr);
+	return $ret_str;
+}
+?>
