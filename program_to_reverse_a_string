@@ -1,0 +1,30 @@
+<form  method="GET" >
+<input type="text" name="req_str" />
+<input type="submit" value="Submit" name="sbmt_btn" />
+</form>
+<?php 
+/**
+*This is the program to reverse string
+*/
+
+
+if(isset($_GET['req_str'])){
+	if(!empty($_GET['req_str'])){
+		$req_str = $_GET['req_str'];
+		echo 'requested string is : '.$req_str;
+		$ret_string = reverse_string($req_str);
+		echo '<br>Reversed string is : '.$ret_string;
+	}
+}
+function reverse_string($req_string){
+	$req_str_arr = str_split($req_string);
+	$retn_arr =[];
+	$req_count = count($req_str_arr);
+	for($i=0;$i< $req_count ;$i++){
+		$retn_arr[$i]= $req_str_arr[$req_count-$i-1];
+		}
+	
+	$ret_str = implode("",$retn_arr);
+	return $ret_str;
+}
+?>
